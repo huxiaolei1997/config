@@ -8,21 +8,21 @@ spring:
           uri: https://github.com/huxiaolei1997/config-repo.git
           username: huxiaolei1997@gmail.com
           password: zjkhhxl1997
-          basedir: D:\Intellij WorkSpaces\SpringCloud_Sell\config-repo
+          basedir: /Users/huxiaolei/IdeaProjects/springCloud-sell/config-repo
 eureka:
   client:
     service-url:
-      defaultZone: http://server1:8761/eureka
+      defaultZone: http://localhost:8761/eureka
       # 如果 eureka 的端口不是 默认的 8761，我们不能直接修改端口，否则从 git 服务器上获取到的配置会是两种配置合并之后的配置，比如 order 服务对应的配置有 order.yml 和 order-dev.yml 这两个配置，
       # 如果直接删除 order-dev.yml 配置文件中的 eureka 端口，而没有删除 order.yml 中配置的端口，order.yml 中的端口配置信息会覆盖 order-dev.yml 中的端口信息
       # 动态刷新配置
-  instance:
-    hostname: config
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+#  instance:
+#    hostname: config
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
 # 最好写在运行时参数里面 VM options: -Dserver.port=8082
-#server:
-#  port: 8082
+server:
+  port: 8082
